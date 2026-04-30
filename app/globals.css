@@ -28,3 +28,154 @@
     -webkit-line-clamp: 3;
   }
 }
+
+/* ── Keyframe Animations ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+@keyframes floatMed {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Animation Utility Classes ── */
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease both;
+}
+.animate-fade-in {
+  animation: fadeIn 0.6s ease both;
+}
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+.animate-float-med {
+  animation: floatMed 4s ease-in-out infinite;
+}
+.animate-count-up {
+  animation: countUp 0.6s ease both;
+}
+.animate-slide-in-left {
+  animation: slideInLeft 0.7s ease both;
+}
+.animate-slide-in-right {
+  animation: slideInRight 0.7s ease both;
+}
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+/* ── Delay Utilities ── */
+.delay-100  { animation-delay: 0.1s; }
+.delay-200  { animation-delay: 0.2s; }
+.delay-300  { animation-delay: 0.3s; }
+.delay-400  { animation-delay: 0.4s; }
+.delay-500  { animation-delay: 0.5s; }
+.delay-600  { animation-delay: 0.6s; }
+.delay-700  { animation-delay: 0.7s; }
+.delay-800  { animation-delay: 0.8s; }
+
+/* ── Shimmer Text ── */
+.text-shimmer {
+  background: linear-gradient(90deg, #0066dd 0%, #36a3ff 40%, #ff6b35 60%, #0066dd 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ── Glass Card ── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ── Hero Mesh Background ── */
+.hero-mesh {
+  background-color: #001e47;
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(10, 132, 255, 0.25) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(54, 163, 255, 0.2) 0%, transparent 50%);
+}
+
+/* ── Gradient Border Card ── */
+.gradient-border-card {
+  position: relative;
+  background: white;
+  border-radius: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.gradient-border-card::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #0066dd, #36a3ff, #ff6b35);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.gradient-border-card:hover::before {
+  opacity: 1;
+}
+.gradient-border-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 102, 221, 0.15);
+}
+
+/* ── Marquee container ── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
