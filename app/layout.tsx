@@ -8,6 +8,39 @@ export const metadata: Metadata = {
   },
   description: 'Clear, honest product comparisons for smarter buying decisions.',
   metadataBase: new URL('https://betterwaycomparison.com'),
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+  },
+  manifest: '/site.webmanifest',
+  openGraph: {
+    type: 'website',
+    siteName: 'Better Way Comparison',
+    title: 'Better Way Comparison — Honest Product Comparisons',
+    description: 'Clear, honest product comparisons for smarter buying decisions.',
+    url: 'https://betterwaycomparison.com',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Better Way Comparison',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Better Way Comparison — Honest Product Comparisons',
+    description: 'Clear, honest product comparisons for smarter buying decisions.',
+    images: ['/og-image.png'],
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

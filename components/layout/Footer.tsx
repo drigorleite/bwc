@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Locale } from '@/types'
 import { t } from '@/lib/i18n'
 import { getLocalePath } from '@/lib/utils'
@@ -17,7 +18,13 @@ export default function Footer({ locale }: Props) {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href={getLocalePath(locale)} className="flex items-center gap-2">
-              <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-sm font-black text-white">B</span>
+              <Image
+                src="/icon.png"
+                alt="Better Way Comparison"
+                width={32}
+                height={32}
+                className="h-8 w-8 object-contain"
+              />
               <span className="font-bold text-gray-900">
                 Better Way <span className="text-brand-600">Comparison</span>
               </span>
@@ -82,6 +89,17 @@ export default function Footer({ locale }: Props) {
             {locale === 'en'
               ? 'Better Way Comparison is a participant in the Amazon Services LLC Associates Program.'
               : 'Better Way Comparison participa do Programa de Associados da Amazon.'}
+          </p>
+          <p className="mt-2">
+            {locale === 'en' ? 'Developed by ' : 'Desenvolvido por '}
+            <a
+              href="https://rodrigoleite.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-brand-600 transition-colors"
+            >
+              Rodrigo Ribeiro Leite
+            </a>
           </p>
         </div>
       </div>

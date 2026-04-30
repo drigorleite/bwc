@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { Locale } from '@/types'
 import { t, locales } from '@/lib/i18n'
@@ -38,7 +39,14 @@ export default function Header({ locale }: Props) {
       <div className="mx-auto flex max-w-8xl items-center justify-between px-4 py-3 sm:px-6">
         {/* Logo */}
         <Link href={getLocalePath(locale)} className="flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand-600 text-sm font-black text-white">B</span>
+          <Image
+            src="/icon.png"
+            alt="Better Way Comparison"
+            width={36}
+            height={36}
+            className="h-9 w-9 object-contain"
+            priority
+          />
           <span className="hidden font-bold text-gray-900 sm:block">
             Better Way <span className="text-brand-600">Comparison</span>
           </span>
