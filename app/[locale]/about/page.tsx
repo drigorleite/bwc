@@ -1,19 +1,41 @@
 import { Metadata } from 'next'
 import { Locale } from '@/types'
-import { getLocalePath } from '@/lib/utils'
+import { getLocalePath, SITE_URL, SITE_NAME } from '@/lib/utils'
+import { buildBreadcrumbSchema, buildOrganizationSchema } from '@/lib/schema'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 
 interface Props { params: { locale: string } }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const locale = params.locale as Locale
-  return { title: locale === 'en' ? 'About Us' : 'Sobre Nós', description: locale === 'en' ? 'Learn about Better Way Comparison and how we choose our product recommendations.' : 'Conheça a Better Way Comparison e como escolhemos nossas recomendações de produtos.' }
+  const isEN   = locale === 'en'
+  const title  = isEN ? 'About Us' : 'Sobre Nós'
+  const desc   = isEN
+    ? 'Learn about Better Way Comparison and how we choose our product recommendations. No paid placements, ever.'
+    : 'Conheça a Better Way Comparison e como escolhemos nossas recomendações de produtos. Sem anúncios pagos.'
+  return {
+    title, description: desc,
+    alternates: {
+      canonical: `${SITE_URL}/${locale}/about`,
+      languages: { 'en-US': `${SITE_URL}/en/about`, 'pt-BR': `${SITE_URL}/pt-br/about`, 'x-default': `${SITE_URL}/en/about` },
+    },
+    openGraph: { title: `${title} | ${SITE_NAME}`, description: desc, url: `${SITE_URL}/${locale}/about`, siteName: SITE_NAME, type: 'website', images: [{ url: '/og-image.png', width: 1200, height: 630, alt: title }] },
+    robots: { index: true, follow: true },
+  }
 }
 
 export default function AboutPage({ params }: Props) {
   const locale = params.locale as Locale
   const isEN = locale === 'en'
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: isEN ? 'Home' : 'Início', url: `${SITE_URL}/${locale}` },
+    { name: isEN ? 'About' : 'Sobre', url: `${SITE_URL}/${locale}/about` },
+  ])
+  const orgSchema = buildOrganizationSchema()
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
       <Breadcrumbs crumbs={[
         { label: isEN ? 'Home' : 'Início', href: getLocalePath(locale) },
@@ -46,5 +68,6 @@ export default function AboutPage({ params }: Props) {
         )}
       </div>
     </div>
+    </>
   )
 }

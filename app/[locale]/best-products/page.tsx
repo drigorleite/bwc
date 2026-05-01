@@ -1,8 +1,9 @@
 import { Metadata } from 'next'
 import { Locale } from '@/types'
-import { getLocalePath } from '@/lib/utils'
+import { getLocalePath, SITE_URL, SITE_NAME } from '@/lib/utils'
 import { getArticlesByLocale } from '@/data/articles/index'
 import { categories } from '@/data/categories'
+import { buildBreadcrumbSchema, buildItemListSchema } from '@/lib/schema'
 import ArticleCard from '@/components/cards/ArticleCard'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import AdSlot from '@/components/ui/AdSlot'
@@ -10,10 +11,31 @@ import AdSlot from '@/components/ui/AdSlot'
 interface Props { params: { locale: string } }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const locale = params.locale as Locale
+  const locale    = params.locale as Locale
+  const isEN      = locale === 'en'
+  const title     = isEN ? 'Best Products — All Comparison Guides' : 'Melhores Produtos — Todos os Guias Comparativos'
+  const desc      = isEN
+    ? 'Browse all our product comparison guides. Every guide is thoroughly researched, ranked by value, and updated regularly.'
+    : 'Navegue por todos os nossos guias comparativos de produtos. Cada guia é pesquisado minuciosamente e atualizado regularmente.'
+  const canonical = `${SITE_URL}/${locale}/best-products`
   return {
-    title:       locale === 'en' ? 'Best Products — All Comparison Guides' : 'Melhores Produtos — Todos os Guias Comparativos',
-    description: locale === 'en' ? 'Browse all our product comparison guides, ranked by value, quality, and buyer intent.' : 'Navegue por todos os nossos guias comparativos de produtos.',
+    title,
+    description: desc,
+    alternates: {
+      canonical,
+      languages: {
+        'en-US':     `${SITE_URL}/en/best-products`,
+        'pt-BR':     `${SITE_URL}/pt-br/best-products`,
+        'x-default': `${SITE_URL}/en/best-products`,
+      },
+    },
+    openGraph: {
+      title: `${title} | ${SITE_NAME}`, description: desc, url: canonical,
+      siteName: SITE_NAME, type: 'website',
+      images: [{ url: '/og-image.png', width: 1200, height: 630, alt: title }],
+    },
+    twitter: { card: 'summary_large_image', title, description: desc, images: ['/og-image.png'] },
+    robots:  { index: true, follow: true },
   }
 }
 
@@ -21,7 +43,19 @@ export default function BestProductsPage({ params }: Props) {
   const locale   = params.locale as Locale
   const articles = getArticlesByLocale(locale)
 
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: locale === 'en' ? 'Home' : 'Início', url: `${SITE_URL}/${locale}` },
+    { name: locale === 'en' ? 'Best Products' : 'Melhores Produtos', url: `${SITE_URL}/${locale}/best-products` },
+  ])
+  const itemListSchema = buildItemListSchema(
+    articles.map((a) => ({ name: a.title, url: `${SITE_URL}/${locale}/${a.slug}`, description: a.metaDescription })),
+    locale === 'en' ? 'All Product Comparison Guides' : 'Todos os Guias Comparativos'
+  )
+
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
     <div className="mx-auto max-w-8xl px-4 py-10 sm:px-6">
       <Breadcrumbs crumbs={[
         { label: locale === 'en' ? 'Home' : 'Início', href: getLocalePath(locale) },
@@ -60,5 +94,6 @@ export default function BestProductsPage({ params }: Props) {
         )
       })}
     </div>
+    </>
   )
 }
