@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Product, Locale } from '@/types'
 import { t } from '@/lib/i18n'
 import RatingBadge from '@/components/ui/RatingBadge'
@@ -33,7 +32,6 @@ export default function ProductRecommendationCard({ product, locale, label, high
     : product.affiliateUrl
 
   const imageSrc = product.image || productImageFallbacks[product.id] || ''
-  const isDataImage = imageSrc.startsWith('data:')
 
   return (
     <div className={`relative flex flex-col overflow-hidden rounded-2xl border bg-white shadow-sm transition-shadow hover:shadow-md ${
@@ -49,11 +47,12 @@ export default function ProductRecommendationCard({ product, locale, label, high
 
       <div className="relative h-48 bg-gradient-to-br from-gray-50 to-gray-100">
         {imageSrc ? (
-          isDataImage ? (
-            <img src={imageSrc} alt={product.name} className="h-full w-full object-contain p-4" />
-          ) : (
-            <Image src={imageSrc} alt={product.name} fill className="object-contain p-4" />
-          )
+          <img
+            src={imageSrc}
+            alt={product.name}
+            className="h-full w-full object-contain p-4"
+            loading="lazy"
+          />
         ) : (
           <div className="flex h-full flex-col items-center justify-center gap-2 text-gray-400">
             <span className="text-5xl opacity-30">📦</span>
