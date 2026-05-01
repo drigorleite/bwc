@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Script from 'next/script'
 import './globals.css'
 import { buildWebSiteSchema, buildOrganizationSchema } from '@/lib/schema'
 
@@ -95,6 +94,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* DNS prefetch for AdSense */}
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+        <meta name="google-adsense-account" content="ca-pub-9440937515445471" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9440937515445471"
+          crossOrigin="anonymous"
+        />
         {/* WebSite schema — enables Google Sitelinks Searchbox */}
         <script
           type="application/ld+json"
@@ -108,18 +113,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-white font-sans antialiased">
         {children}
-
-        {/*
-         * Google AdSense — ca-pub-9440937515445471
-         * Strategy: afterInteractive — loads after page is interactive,
-         * does NOT block LCP or FID, safe for Core Web Vitals.
-         */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9440937515445471"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   )
