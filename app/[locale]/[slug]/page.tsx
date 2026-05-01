@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Locale } from '@/types'
 import { t } from '@/lib/i18n'
 import { getLocalePath, SITE_URL, SITE_NAME } from '@/lib/utils'
@@ -33,40 +34,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   )
 
   return {
-    title:       article.metaTitle,
+    title: article.metaTitle,
     description: article.metaDescription,
-    keywords:    [article.primaryKeyword, ...article.secondaryKeywords],
-    authors:     [{ name: article.author }],
+    keywords: [article.primaryKeyword, ...article.secondaryKeywords],
+    authors: [{ name: article.author }],
     openGraph: {
-      title:         article.metaTitle,
-      description:   article.metaDescription,
-      type:          'article',
-      url:           `${SITE_URL}/${locale}/${article.slug}`,
-      siteName:      SITE_NAME,
+      title: article.metaTitle,
+      description: article.metaDescription,
+      type: 'article',
+      url: `${SITE_URL}/${locale}/${article.slug}`,
+      siteName: SITE_NAME,
       publishedTime: article.datePublished,
-      modifiedTime:  article.dateModified,
-      authors:       [article.author],
-      section:       article.category,
-      tags:          [article.primaryKeyword, ...article.secondaryKeywords],
+      modifiedTime: article.dateModified,
+      authors: [article.author],
+      section: article.category,
+      tags: [article.primaryKeyword, ...article.secondaryKeywords],
       ...(article.heroImage ? { images: [{ url: article.heroImage, alt: article.title }] } : {
         images: [{ url: '/og-image.png', width: 1200, height: 630, alt: article.title }],
       }),
     },
     twitter: {
-      card:        'summary_large_image',
-      title:       article.metaTitle,
+      card: 'summary_large_image',
+      title: article.metaTitle,
       description: article.metaDescription,
-      images:      article.heroImage ? [article.heroImage] : ['/og-image.png'],
+      images: article.heroImage ? [article.heroImage] : ['/og-image.png'],
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/${article.slug}`,
       languages: {
-        'en-US': altLocale === 'en' && altArticle
-          ? `${SITE_URL}/en/${altArticle.slug}`
-          : `${SITE_URL}/en/${article.slug}`,
-        'pt-BR': altLocale === 'pt-br' && altArticle
-          ? `${SITE_URL}/pt-br/${altArticle.slug}`
-          : `${SITE_URL}/pt-br/${article.slug}`,
+        'en-US': altLocale === 'en' && altArticle ? `${SITE_URL}/en/${altArticle.slug}` : `${SITE_URL}/en/${article.slug}`,
+        'pt-BR': altLocale === 'pt-br' && altArticle ? `${SITE_URL}/pt-br/${altArticle.slug}` : `${SITE_URL}/pt-br/${article.slug}`,
         'x-default': `${SITE_URL}/en/${article.slug}`,
       },
     },
@@ -82,25 +79,26 @@ export default function ArticlePage({ params }: Props) {
   const article = getArticleBySlug(params.slug)
   if (!article) notFound()
 
-  const locale  = params.locale as Locale
+  const locale = params.locale as Locale
   const schemas = buildArticlePageSchemas(article)
+  const isCordlessDrillArticle = article.slug === 'best-cordless-drill-for-homeowners'
 
   const labelMap: Record<string, string> = ({
     en: {
       'Best for Beginners': 'Best for Beginners',
-      'Best Value':         'Best Value',
-      'Best Premium':       'Best Premium',
-      'Best to Avoid':      'Best to Avoid',
-      'Best Overall':       'Best Overall',
-      'Best Compact':       'Best Compact',
+      'Best Value': 'Best Value',
+      'Best Premium': 'Best Premium',
+      'Best to Avoid': 'Best to Avoid',
+      'Best Overall': 'Best Overall',
+      'Best Compact': 'Best Compact',
     },
     'pt-br': {
       'Best for Beginners': 'Melhor para Iniciantes',
-      'Best Value':         'Melhor Custo-Benefício',
-      'Best Premium':       'Melhor Premium',
-      'Best to Avoid':      'Evitar',
-      'Best Overall':       'Melhor Geral',
-      'Best Compact':       'Melhor Compacto',
+      'Best Value': 'Melhor Custo-Benefício',
+      'Best Premium': 'Melhor Premium',
+      'Best to Avoid': 'Evitar',
+      'Best Overall': 'Melhor Geral',
+      'Best Compact': 'Melhor Compacto',
     },
   } as Record<string, Record<string, string>>)[locale] ?? {}
 
@@ -108,24 +106,17 @@ export default function ArticlePage({ params }: Props) {
 
   return (
     <>
-      {/* JSON-LD structured data */}
       {schemas.map((schema, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       ))}
 
       <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
-        {/* Breadcrumbs */}
         <Breadcrumbs crumbs={[
           { label: locale === 'en' ? 'Home' : 'Início', href: getLocalePath(locale) },
           { label: article.category, href: getLocalePath(locale, `category/${categorySlug}`) },
           { label: article.title },
         ]} />
 
-        {/* Article header */}
         <header className="mt-6">
           <span className="rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-700">
             {article.category}
@@ -134,30 +125,33 @@ export default function ArticlePage({ params }: Props) {
             {article.title}
           </h1>
           <div className="mt-3 flex flex-wrap items-center gap-4 text-sm text-gray-500">
-            <span>
-              {t(locale, 'by')}{' '}
-              <span className="font-medium text-gray-700">{article.author}</span>
-            </span>
+            <span>{t(locale, 'by')} <span className="font-medium text-gray-700">{article.author}</span></span>
             <span>·</span>
             <time dateTime={article.dateModified}>
-              {t(locale, 'updated')}{' '}
-              {new Date(article.dateModified).toLocaleDateString(
-                locale === 'pt-br' ? 'pt-BR' : 'en-US',
-                { year: 'numeric', month: 'long', day: 'numeric' }
-              )}
+              {t(locale, 'updated')} {new Date(article.dateModified).toLocaleDateString(locale === 'pt-br' ? 'pt-BR' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
             </time>
           </div>
         </header>
 
-        {/* Affiliate disclosure */}
         <div className="mt-6">
           <AffiliateDisclosure locale={locale} />
         </div>
 
-        {/* Intro */}
+        {isCordlessDrillArticle && (
+          <div className="mt-6 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm">
+            <Image
+              src="/images/drills/brand-tools.svg"
+              alt="DeWalt, Milwaukee, Bosch, Ryobi, FLEX, Makita and Kobalt power tool brands compared"
+              width={1200}
+              height={760}
+              className="h-auto w-full object-contain"
+              priority
+            />
+          </div>
+        )}
+
         <p className="mt-6 text-lg leading-relaxed text-gray-700">{article.intro}</p>
 
-        {/* Quick Recommendation Summary */}
         <div className="mt-8 rounded-2xl border border-gray-100 bg-gray-50 p-5">
           <h2 className="mb-4 text-lg font-bold text-gray-900">
             {locale === 'en' ? '⚡ Quick Summary — Best Picks' : '⚡ Resumo Rápido — Melhores Escolhas'}
@@ -175,40 +169,26 @@ export default function ArticlePage({ params }: Props) {
                     <div className="text-sm font-medium text-gray-900">{card.productName}</div>
                     <div className="text-xs text-gray-500">{card.reason}</div>
                   </div>
-                  {product && (
-                    <RatingBadge rating={product.rating} size="sm" className="ml-auto shrink-0" />
-                  )}
+                  {product && <RatingBadge rating={product.rating} size="sm" className="ml-auto shrink-0" />}
                 </div>
               )
             })}
           </div>
         </div>
 
-        {/* Product Cards */}
         <section className="mt-10" aria-label={locale === 'en' ? 'Top Picks' : 'Melhores Escolhas'}>
-          <h2 className="mb-6 text-2xl font-bold text-gray-900">
-            {locale === 'en' ? 'Top Picks' : 'Melhores Escolhas'}
-          </h2>
+          <h2 className="mb-6 text-2xl font-bold text-gray-900">{locale === 'en' ? 'Top Picks' : 'Melhores Escolhas'}</h2>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {article.products.map((product, i) => {
               const card = article.recommendationCards.find((c) => c.productId === product.id)
               const label = card ? (labelMap[card.label] ?? card.label) : undefined
-              return (
-                <ProductRecommendationCard
-                  key={product.id}
-                  product={product}
-                  locale={locale}
-                  label={label}
-                  highlight={i === 0}
-                />
-              )
+              return <ProductRecommendationCard key={product.id} product={product} locale={locale} label={label} highlight={i === 0} />
             })}
           </div>
         </section>
 
         <AdSlot id="article-mid-1" format="horizontal" />
 
-        {/* Comparison Table */}
         <section className="mt-10" aria-label={t(locale, 'comparison.table')}>
           <h2 className="mb-4 text-2xl font-bold text-gray-900">{t(locale, 'comparison.table')}</h2>
           <ProductComparisonTable rows={article.comparisonTable} locale={locale} />
@@ -216,7 +196,6 @@ export default function ArticlePage({ params }: Props) {
 
         <AdSlot id="article-mid-2" format="horizontal" />
 
-        {/* Individual Reviews */}
         {article.reviews.map((review) => (
           <section key={review.productId} className="mt-12 border-t border-gray-100 pt-10" aria-label={review.productName}>
             <div className="mb-4 flex items-start justify-between gap-4">
@@ -225,11 +204,7 @@ export default function ArticlePage({ params }: Props) {
             </div>
             <p className="mb-6 text-gray-700 leading-relaxed">{review.overview}</p>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {([
-                [t(locale, 'build.quality'), review.buildQuality],
-                [t(locale, 'performance'),   review.performance],
-                [t(locale, 'value'),         review.valueForMoney],
-              ] as [string, string][]).map(([title, content]) => (
+              {([[t(locale, 'build.quality'), review.buildQuality], [t(locale, 'performance'), review.performance], [t(locale, 'value'), review.valueForMoney]] as [string, string][]).map(([title, content]) => (
                 <div key={title} className="rounded-xl border border-gray-100 bg-gray-50 p-4">
                   <h3 className="mb-1.5 text-xs font-semibold uppercase tracking-wider text-gray-500">{title}</h3>
                   <p className="text-sm text-gray-700 leading-relaxed">{content}</p>
@@ -242,23 +217,15 @@ export default function ArticlePage({ params }: Props) {
                 <p className="text-sm text-red-600">{review.whoShouldAvoid}</p>
               </div>
             </div>
-            <div className="mt-4">
-              <ProsConsBox pros={review.pros} cons={review.cons} locale={locale} />
-            </div>
-            <div className="mt-5">
-              <AffiliateButton href={review.affiliateUrl} locale={locale} label="check" variant="primary" size="lg" />
-            </div>
+            <div className="mt-4"><ProsConsBox pros={review.pros} cons={review.cons} locale={locale} /></div>
+            <div className="mt-5"><AffiliateButton href={review.affiliateUrl} locale={locale} label="check" variant="primary" size="lg" /></div>
           </section>
         ))}
 
         <AdSlot id="article-pre-faq" format="horizontal" />
 
-        {/* Final Verdict */}
-        <div className="mt-10">
-          <FinalVerdictBox verdict={article.finalVerdict} locale={locale} />
-        </div>
+        <div className="mt-10"><FinalVerdictBox verdict={article.finalVerdict} locale={locale} /></div>
 
-        {/* FAQ — marked up for FAQPage rich result */}
         {article.faqs.length > 0 && (
           <section className="mt-10" aria-label={t(locale, 'faq')}>
             <h2 className="mb-6 text-2xl font-bold text-gray-900">{t(locale, 'faq')}</h2>
@@ -266,17 +233,12 @@ export default function ArticlePage({ params }: Props) {
           </section>
         )}
 
-        {/* Internal Links */}
         {article.internalLinks.length > 0 && (
           <nav className="mt-10 border-t border-gray-100 pt-8" aria-label={t(locale, 'related')}>
             <h3 className="mb-4 text-lg font-bold text-gray-900">{t(locale, 'related')}</h3>
             <div className="flex flex-wrap gap-3">
               {article.internalLinks.map((link) => (
-                <Link
-                  key={link.slug}
-                  href={getLocalePath(link.locale, link.slug)}
-                  className="rounded-lg border border-brand-200 bg-brand-50 px-4 py-2 text-sm font-medium text-brand-700 transition-colors hover:bg-brand-100"
-                >
+                <Link key={link.slug} href={getLocalePath(link.locale, link.slug)} className="rounded-lg border border-brand-200 bg-brand-50 px-4 py-2 text-sm font-medium text-brand-700 transition-colors hover:bg-brand-100">
                   {link.title} →
                 </Link>
               ))}
@@ -284,7 +246,6 @@ export default function ArticlePage({ params }: Props) {
           </nav>
         )}
 
-        {/* Bottom disclosure */}
         <div className="mt-10 border-t border-gray-100 pt-6">
           <AffiliateDisclosure locale={locale} compact />
         </div>
