@@ -1,5 +1,12 @@
 import { Article } from '@/types'
 
+const fossilNeutraUrl = 'https://amzn.to/4eiuJ8m'
+const fossilMinimalistUrl = 'https://amzn.to/4nbd2tU'
+const caravelleDressUrl = 'https://amzn.to/4ui5OX8'
+const armitronGoldUrl = 'https://amzn.to/4tuD9xv'
+const invictaProDiverUrl = 'https://amzn.to/3QJG5IO'
+const casioA168Url = 'https://amzn.to/4w1OwiR'
+
 const article: Article = {
   locale: 'en',
   slug: 'best-affordable-watches-that-look-expensive',
@@ -76,7 +83,7 @@ const article: Article = {
       mainWeakness: 'Quartz movement, not automatic',
       rating: 7.0,
       priceRange: '$150–$180',
-      affiliateUrl: 'https://www.amazon.com/s?k=Fossil+Neutra+Chronograph&tag=betterwaycomp-20',
+      affiliateUrl: fossilNeutraUrl,
     },
     {
       id: 'fossil-minimalist',
@@ -88,7 +95,7 @@ const article: Article = {
       mainWeakness: 'Simple quartz watch with limited personality if you want something bold',
       rating: 6.0,
       priceRange: '$100–$130',
-      affiliateUrl: 'https://www.amazon.com/s?k=Fossil+Minimalist+3H+watch&tag=betterwaycomp-20',
+      affiliateUrl: fossilMinimalistUrl,
     },
     {
       id: 'caravelle-dress',
@@ -100,7 +107,7 @@ const article: Article = {
       mainWeakness: 'Not as recognizable as Fossil, Citizen, Seiko, or Casio to casual buyers',
       rating: 6.0,
       priceRange: '$100–$130',
-      affiliateUrl: 'https://www.amazon.com/s?k=Caravelle+by+Bulova+dress+watch&tag=betterwaycomp-20',
+      affiliateUrl: caravelleDressUrl,
     },
     {
       id: 'armitron-gold',
@@ -112,7 +119,7 @@ const article: Article = {
       mainWeakness: 'Can look cheap fast if the outfit is wrong or the gold tone feels too loud',
       rating: 8.0,
       priceRange: '$30–$50',
-      affiliateUrl: 'https://www.amazon.com/s?k=Armitron+gold+dress+watch&tag=betterwaycomp-20',
+      affiliateUrl: armitronGoldUrl,
     },
     {
       id: 'invicta-pro-diver',
@@ -124,7 +131,7 @@ const article: Article = {
       mainWeakness: 'Invicta is controversial and should not be confused with a luxury brand',
       rating: 6.0,
       priceRange: '$60–$100',
-      affiliateUrl: 'https://www.amazon.com/s?k=Invicta+Pro+Diver&tag=betterwaycomp-20',
+      affiliateUrl: invictaProDiverUrl,
     },
     {
       id: 'casio-a168',
@@ -136,7 +143,7 @@ const article: Article = {
       mainWeakness: 'It does not look expensive in the traditional sense — it looks cool and iconic',
       rating: 5.0,
       priceRange: '$40–$70',
-      affiliateUrl: 'https://www.amazon.com/s?k=Casio+A168&tag=betterwaycomp-20',
+      affiliateUrl: casioA168Url,
     },
   ],
   comparisonTable: [
@@ -147,7 +154,7 @@ const article: Article = {
       mainDownside: 'Quartz movement, not automatic',
       priceRange: '$150–$180',
       rating: 7.0,
-      affiliateUrl: 'https://www.amazon.com/s?k=Fossil+Neutra+Chronograph&tag=betterwaycomp-20',
+      affiliateUrl: fossilNeutraUrl,
     },
     {
       product: 'Fossil Minimalist',
@@ -156,7 +163,7 @@ const article: Article = {
       mainDownside: 'Very simple and not exciting for collectors',
       priceRange: '$100–$130',
       rating: 6.0,
-      affiliateUrl: 'https://www.amazon.com/s?k=Fossil+Minimalist+3H+watch&tag=betterwaycomp-20',
+      affiliateUrl: fossilMinimalistUrl,
     },
     {
       product: 'Caravelle by Bulova',
@@ -165,7 +172,7 @@ const article: Article = {
       mainDownside: 'Less mainstream brand recognition',
       priceRange: '$100–$130',
       rating: 6.0,
-      affiliateUrl: 'https://www.amazon.com/s?k=Caravelle+by+Bulova+dress+watch&tag=betterwaycomp-20',
+      affiliateUrl: caravelleDressUrl,
     },
     {
       product: 'Invicta Pro Diver',
@@ -174,7 +181,7 @@ const article: Article = {
       mainDownside: 'Controversial brand perception',
       priceRange: '$60–$100',
       rating: 6.0,
-      affiliateUrl: 'https://www.amazon.com/s?k=Invicta+Pro+Diver&tag=betterwaycomp-20',
+      affiliateUrl: invictaProDiverUrl,
     },
     {
       product: 'Armitron Gold Dress Watch',
@@ -183,7 +190,7 @@ const article: Article = {
       mainDownside: 'Low versatility and can look cheap if overdone',
       priceRange: '$30–$50',
       rating: 8.0,
-      affiliateUrl: 'https://www.amazon.com/s?k=Armitron+gold+dress+watch&tag=betterwaycomp-20',
+      affiliateUrl: armitronGoldUrl,
     },
     {
       product: 'Casio A168',
@@ -192,7 +199,7 @@ const article: Article = {
       mainDownside: 'Cool cheap, not fake luxury',
       priceRange: '$40–$70',
       rating: 5.0,
-      affiliateUrl: 'https://www.amazon.com/s?k=Casio+A168&tag=betterwaycomp-20',
+      affiliateUrl: casioA168Url,
     },
   ],
   reviews: [
@@ -214,7 +221,7 @@ const article: Article = {
         'Avoid it if you specifically want an automatic movement or a smaller minimalist dress watch.',
       pros: ['Premium chronograph look', 'Brushed steel and leather look expensive', 'Very versatile', 'Safe first style watch'],
       cons: ['Quartz movement', 'Not a true luxury watch', 'Can feel large on small wrists'],
-      affiliateUrl: 'https://www.amazon.com/s?k=Fossil+Neutra+Chronograph&tag=betterwaycomp-20',
+      affiliateUrl: fossilNeutraUrl,
       rating: 7.0,
     },
     {
@@ -235,7 +242,7 @@ const article: Article = {
         'Avoid it if you want a bold watch, chronograph design, or sport-luxury look.',
       pros: ['Clean dial', 'Professional look', 'Easy to wear', 'Quiet luxury style'],
       cons: ['Very simple', 'Quartz only', 'Not ideal for sporty outfits'],
-      affiliateUrl: 'https://www.amazon.com/s?k=Fossil+Minimalist+3H+watch&tag=betterwaycomp-20',
+      affiliateUrl: fossilMinimalistUrl,
       rating: 6.0,
     },
     {
@@ -256,7 +263,7 @@ const article: Article = {
         'Avoid it if you want a sporty daily watch or a recognizable mainstream fashion brand.',
       pros: ['Bulova-backed credibility', 'Classy dial', 'Looks more expensive than it is', 'Good event watch'],
       cons: ['Less brand recognition than Fossil', 'Not sporty', 'Quartz only'],
-      affiliateUrl: 'https://www.amazon.com/s?k=Caravelle+by+Bulova+dress+watch&tag=betterwaycomp-20',
+      affiliateUrl: caravelleDressUrl,
       rating: 6.0,
     },
     {
@@ -277,7 +284,7 @@ const article: Article = {
         'Avoid it if you want daily versatility or subtle quiet luxury.',
       pros: ['Very cheap', 'Gold-tone luxury impact', 'Dressy rectangular style', 'Strong visual presence'],
       cons: ['Can look cheap if overdone', 'Low versatility', 'Budget materials'],
-      affiliateUrl: 'https://www.amazon.com/s?k=Armitron+gold+dress+watch&tag=betterwaycomp-20',
+      affiliateUrl: armitronGoldUrl,
       rating: 8.0,
     },
     {
@@ -298,7 +305,7 @@ const article: Article = {
         'Avoid it if you want quiet luxury or dislike homage-style watches.',
       pros: ['Submariner-style aesthetic', 'Stainless steel look', 'Strong casual presence', 'Usually under $100'],
       cons: ['Brand is controversial', 'Not luxury', 'Medium versatility'],
-      affiliateUrl: 'https://www.amazon.com/s?k=Invicta+Pro+Diver&tag=betterwaycomp-20',
+      affiliateUrl: invictaProDiverUrl,
       rating: 6.0,
     },
     {
@@ -319,7 +326,7 @@ const article: Article = {
         'Avoid it if you need a dress watch or want something that looks traditionally expensive.',
       pros: ['Iconic design', 'Very affordable', 'Retro style', 'High versatility for casual wear'],
       cons: ['Not dressy', 'Does not look traditionally expensive', 'Small digital design is not for everyone'],
-      affiliateUrl: 'https://www.amazon.com/s?k=Casio+A168&tag=betterwaycomp-20',
+      affiliateUrl: casioA168Url,
       rating: 5.0,
     },
   ],
