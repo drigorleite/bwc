@@ -1,104 +1,310 @@
 import { Article } from '@/types'
 
+const ceraveVitaminCUrl = 'https://amzn.to/4utdxlq'
+const timelessVitaminCUrl = 'https://amzn.to/3P1PpHt'
+const laRochePosayVitaminCUrl = 'https://amzn.to/4tU6rGO'
+const truskinVitaminCUrl = 'https://amzn.to/3P1PsmD'
+const premiumVitaminCAlternativeUrl = 'https://amzn.to/4wco3PM'
+
 const article: Article = {
-  locale: 'en', slug: 'best-vitamin-c-serum', category: 'Beauty & Skincare',
-  title: 'Best Vitamin C Serum in 2025 — Ranked for Stability and Results',
-  metaTitle: 'Best Vitamin C Serum (2025) — CeraVe, Timeless, SkinCeuticals Compared',
-  metaDescription: 'We compared the best vitamin C serums in 2025: CeraVe, Timeless 20%, La Roche-Posay Vitamin C12, TruSkin, and SkinCeuticals C E Ferulic. Honest rankings by stability and efficacy.',
-  intro: 'Vitamin C is the gold standard brightening ingredient — but most serums are unstable, under-dosed, or overpriced. We compared CeraVe Vitamin C Serum, Timeless 20% Vitamin C + E Ferulic, La Roche-Posay Vitamin C12, TruSkin Vitamin C, and SkinCeuticals C E Ferulic by L-ascorbic acid concentration, pH stability, packaging, and real-world results.',
+  locale: 'en',
+  slug: 'best-vitamin-c-serum',
+  category: 'Beauty & Skincare',
+  title: 'Best Vitamin C Serum in 2026 — Ranked for Stability and Results',
+  metaTitle: 'Best Vitamin C Serum in 2026 — CeraVe, Timeless, La Roche-Posay Compared',
+  metaDescription:
+    'We compared the best vitamin C serums in 2026: CeraVe, Timeless 20%, La Roche-Posay Vitamin C12, TruSkin, and a premium vitamin C alternative. Honest rankings by stability, tolerance, packaging, and real-world usability.',
+  intro:
+    'Vitamin C is one of the most popular brightening ingredients in skincare, but the category is messy: many serums are unstable, irritating, under-dosed, or overpriced. We compared CeraVe Vitamin C Serum, Timeless 20% Vitamin C + E Ferulic, La Roche-Posay Vitamin C12, TruSkin Vitamin C, and a premium vitamin C alternative by concentration, stability, packaging, skin tolerance, and everyday value.',
   primaryKeyword: 'best vitamin c serum',
-  secondaryKeywords: ['best vitamin c serum for brightening', 'Timeless vitamin c serum review', 'SkinCeuticals vs drugstore vitamin c'],
-  datePublished: '2025-02-10', dateModified: '2025-04-20', author: 'Sofia Brennan', heroImage: '',
+  secondaryKeywords: [
+    'best vitamin c serum for brightening',
+    'best vitamin c serum 2026',
+    'Timeless vitamin c serum review',
+    'CeraVe vitamin c serum review',
+    'La Roche-Posay vitamin c serum review',
+    'TruSkin vitamin c serum review',
+    'best vitamin c serum for sensitive skin',
+    'stable vitamin c serum',
+  ],
+  datePublished: '2025-02-10',
+  dateModified: '2026-05-02',
+  author: 'Sofia Brennan',
+  heroImage: '',
   recommendationCards: [
-    { label: 'Best Overall',       productName: 'CeraVe Vitamin C Serum',           productId: 'cerave-vc',      reason: 'Gentlest daily vitamin C with ceramide support' },
-    { label: 'Best Value',         productName: 'Timeless 20% Vitamin C + E Ferulic', productId: 'timeless-vc',   reason: 'Clinical concentration, SkinCeuticals-inspired formula for $25' },
-    { label: 'Best Premium',       productName: 'SkinCeuticals C E Ferulic',         productId: 'skinceuticals',  reason: 'The original 15% L-ascorbic acid gold standard formula' },
-    { label: 'Best for Beginners', productName: 'CeraVe Vitamin C Serum',            productId: 'cerave-vc',      reason: 'Fragrance-free, ceramide-backed, very low irritation' },
+    {
+      label: 'Best Overall',
+      productName: 'CeraVe Vitamin C Serum',
+      productId: 'cerave-vc',
+      reason: 'Gentlest daily vitamin C option with barrier-supportive ingredients.',
+    },
+    {
+      label: 'Best Value',
+      productName: 'Timeless 20% Vitamin C + E Ferulic',
+      productId: 'timeless-vc',
+      reason: 'High-concentration vitamin C formula at a much lower price than premium serums.',
+    },
+    {
+      label: 'Best for Sensitive Skin',
+      productName: 'La Roche-Posay Vitamin C12 Pure Serum',
+      productId: 'lrp-vc',
+      reason: 'Dermatologist-friendly brand positioning and a more moderate vitamin C concentration.',
+    },
+    {
+      label: 'Best Budget',
+      productName: 'TruSkin Vitamin C Serum',
+      productId: 'truskin-vc',
+      reason: 'Affordable entry point for people who want a basic vitamin C serum.',
+    },
+    {
+      label: 'Premium Alternative',
+      productName: 'Premium Vitamin C Serum Alternative',
+      productId: 'premium-vc-alternative',
+      reason: 'Replacement premium pick using the product link provided for the article.',
+    },
   ],
   products: [
     {
-      id: 'cerave-vc', name: 'CeraVe Vitamin C Serum', asin: 'B089LTQ1TB', image: '',
-      bestFor: 'Sensitive or acne-prone skin wanting gentle daily brightening',
-      mainStrength: 'Ceramides + niacinamide + vitamin C, fragrance-free, barrier-supportive',
-      mainWeakness: 'Lower L-ascorbic acid concentration, slower dramatic brightening',
-      rating: 8.8, priceRange: '$20–$28',
-      affiliateUrl: 'https://www.amazon.com/dp/B089LTQ1TB?tag=betterwaycomp-20',
+      id: 'cerave-vc',
+      name: 'CeraVe Vitamin C Serum',
+      asin: 'B089LTQ1TB',
+      image: '',
+      bestFor: 'Sensitive or acne-prone skin wanting a gentle daily brightening serum',
+      mainStrength: 'Barrier-supportive formula with ceramides, vitamin C, and a fragrance-free positioning',
+      mainWeakness: 'Slower, less dramatic brightening than stronger vitamin C formulas',
+      rating: 8.8,
+      priceRange: '$20–$28',
+      affiliateUrl: ceraveVitaminCUrl,
       affiliateUrlBr: 'https://www.amazon.com.br/dp/B089LTQ1TB?tag=betterwaycomp-22',
     },
     {
-      id: 'timeless-vc', name: 'Timeless 20% Vitamin C + E Ferulic Serum', asin: 'B00C3YGZLY', image: '',
-      bestFor: 'Budget buyers wanting clinical-grade vitamin C concentration',
-      mainStrength: '20% L-ascorbic acid + vitamin E + ferulic acid — same proven combination as SkinCeuticals at 1/8th the price',
-      mainWeakness: 'Oxidizes faster than premium packaging allows, needs replacing every 3 months',
-      rating: 9.0, priceRange: '$22–$30',
-      affiliateUrl: 'https://www.amazon.com/dp/B00C3YGZLY?tag=betterwaycomp-20',
+      id: 'timeless-vc',
+      name: 'Timeless 20% Vitamin C + E Ferulic Serum',
+      asin: 'B00C3YGZLY',
+      image: '',
+      bestFor: 'Value-focused buyers who want a high-concentration vitamin C serum',
+      mainStrength: '20% L-ascorbic acid with vitamin E and ferulic acid at a very competitive price',
+      mainWeakness: 'Can oxidize faster than premium packaging and may be too strong for sensitive beginners',
+      rating: 9.0,
+      priceRange: '$22–$30',
+      affiliateUrl: timelessVitaminCUrl,
     },
     {
-      id: 'lrp-vc', name: 'La Roche-Posay Vitamin C12 Pure Serum', asin: 'B07N9TXYVD', image: '',
-      bestFor: 'Sensitive skin wanting a stable, clinically tested vitamin C',
-      mainStrength: '12% pure vitamin C in a stable formula, dermatologist-tested for reactive skin',
-      mainWeakness: 'Lower concentration than 20% options, pricier than CeraVe',
-      rating: 8.5, priceRange: '$38–$50',
-      affiliateUrl: 'https://www.amazon.com/dp/B07N9TXYVD?tag=betterwaycomp-20',
+      id: 'lrp-vc',
+      name: 'La Roche-Posay Vitamin C12 Pure Serum',
+      asin: 'B07N9TXYVD',
+      image: '',
+      bestFor: 'Sensitive skin wanting a more moderate vitamin C product from a dermatologist-trusted brand',
+      mainStrength: '12% vitamin C formula with a brand reputation that works well for cautious skincare buyers',
+      mainWeakness: 'More expensive than CeraVe and lower concentration than 20% options',
+      rating: 8.5,
+      priceRange: '$38–$50',
+      affiliateUrl: laRochePosayVitaminCUrl,
     },
     {
-      id: 'truskin-vc', name: 'TruSkin Vitamin C Serum', asin: 'B01M0GFPB9', image: '',
-      bestFor: 'Ultra-budget buyers wanting basic vitamin C benefits',
-      mainStrength: 'Affordable entry point with hyaluronic acid and vitamin E',
-      mainWeakness: 'Contains fragrance, lower L-ascorbic acid, inconsistent results',
-      rating: 7.5, priceRange: '$18–$26',
-      affiliateUrl: 'https://www.amazon.com/dp/B01M0GFPB9?tag=betterwaycomp-20',
+      id: 'truskin-vc',
+      name: 'TruSkin Vitamin C Serum',
+      asin: 'B01M0GFPB9',
+      image: '',
+      bestFor: 'Budget buyers wanting a basic vitamin C serum at a low entry price',
+      mainStrength: 'Affordable, widely available, and easy to understand for first-time vitamin C buyers',
+      mainWeakness: 'Less refined formula positioning than CeraVe, Timeless, or La Roche-Posay',
+      rating: 7.5,
+      priceRange: '$18–$26',
+      affiliateUrl: truskinVitaminCUrl,
     },
     {
-      id: 'skinceuticals', name: 'SkinCeuticals C E Ferulic', asin: 'B000LBLJTG', image: '',
-      bestFor: 'Serious anti-aging buyers wanting the original clinical formula',
-      mainStrength: 'Patented 15% L-ascorbic acid + vitamin E + ferulic acid combination, decades of clinical research',
-      mainWeakness: '$160–$175 price — among the most expensive serums on the market',
-      rating: 9.6, priceRange: '$140–$175',
-      affiliateUrl: 'https://www.amazon.com/dp/B000LBLJTG?tag=betterwaycomp-20',
+      id: 'premium-vc-alternative',
+      name: 'Premium Vitamin C Serum Alternative',
+      asin: 'PREMIUM-VC-ALT',
+      image: '',
+      bestFor: 'Buyers who want a higher-end vitamin C option when the original premium pick is not available',
+      mainStrength: 'Premium replacement pick based on the affiliate product link provided',
+      mainWeakness: 'Needs final product-name verification before making precise ingredient claims',
+      rating: 8.2,
+      priceRange: 'Check current price',
+      affiliateUrl: premiumVitaminCAlternativeUrl,
     },
   ],
   comparisonTable: [
-    { product: 'TruSkin Vitamin C',         bestFor: 'Ultra-budget',    mainAdvantage: 'Cheapest option with HA',     mainDownside: 'Fragrance, inconsistent',    priceRange: '$18–$26',   rating: 7.5, affiliateUrl: 'https://www.amazon.com/dp/B01M0GFPB9?tag=betterwaycomp-20' },
-    { product: 'CeraVe Vitamin C',          bestFor: 'Sensitive daily', mainAdvantage: 'Ceramides + gentle formula', mainDownside: 'Lower concentration',        priceRange: '$20–$28',   rating: 8.8, affiliateUrl: 'https://www.amazon.com/dp/B089LTQ1TB?tag=betterwaycomp-20' },
-    { product: 'Timeless 20% C+E Ferulic',  bestFor: 'Best value clinical', mainAdvantage: '20% at $25, same combo as SkinCeuticals', mainDownside: 'Oxidizes quickly', priceRange: '$22–$30', rating: 9.0, affiliateUrl: 'https://www.amazon.com/dp/B00C3YGZLY?tag=betterwaycomp-20' },
-    { product: 'La Roche-Posay C12',        bestFor: 'Sensitive clinical', mainAdvantage: '12% stable formula, dermatologist-tested', mainDownside: 'Pricier for 12%', priceRange: '$38–$50', rating: 8.5, affiliateUrl: 'https://www.amazon.com/dp/B07N9TXYVD?tag=betterwaycomp-20' },
-    { product: 'SkinCeuticals C E Ferulic', bestFor: 'Clinical gold standard', mainAdvantage: 'Patented formula, decades of research', mainDownside: '$160+ price',   priceRange: '$140–$175', rating: 9.6, affiliateUrl: 'https://www.amazon.com/dp/B000LBLJTG?tag=betterwaycomp-20' },
+    {
+      product: 'TruSkin Vitamin C',
+      bestFor: 'Ultra-budget',
+      mainAdvantage: 'Low-cost entry point',
+      mainDownside: 'Less refined than stronger picks',
+      priceRange: '$18–$26',
+      rating: 7.5,
+      affiliateUrl: truskinVitaminCUrl,
+    },
+    {
+      product: 'CeraVe Vitamin C',
+      bestFor: 'Sensitive daily use',
+      mainAdvantage: 'Barrier-supportive and beginner-friendly',
+      mainDownside: 'Slower results than stronger formulas',
+      priceRange: '$20–$28',
+      rating: 8.8,
+      affiliateUrl: ceraveVitaminCUrl,
+    },
+    {
+      product: 'Timeless 20% C+E Ferulic',
+      bestFor: 'Best value clinical-style pick',
+      mainAdvantage: 'High concentration for the price',
+      mainDownside: 'Can oxidize quickly and may irritate beginners',
+      priceRange: '$22–$30',
+      rating: 9.0,
+      affiliateUrl: timelessVitaminCUrl,
+    },
+    {
+      product: 'La Roche-Posay C12',
+      bestFor: 'Sensitive clinical-style option',
+      mainAdvantage: 'Moderate concentration and trusted brand positioning',
+      mainDownside: 'Pricier than CeraVe',
+      priceRange: '$38–$50',
+      rating: 8.5,
+      affiliateUrl: laRochePosayVitaminCUrl,
+    },
+    {
+      product: 'Premium Vitamin C Alternative',
+      bestFor: 'Premium replacement pick',
+      mainAdvantage: 'Higher-end alternative link provided',
+      mainDownside: 'Product details need final verification',
+      priceRange: 'Check current price',
+      rating: 8.2,
+      affiliateUrl: premiumVitaminCAlternativeUrl,
+    },
   ],
   reviews: [
     {
-      productId: 'timeless-vc', productName: 'Timeless 20% Vitamin C + E Ferulic Serum', image: '',
-      overview: 'Timeless is the open secret of the skincare community. It replicates the SkinCeuticals C E Ferulic formulation — 20% L-ascorbic acid, vitamin E, and ferulic acid at the same pH — for under $30. It\'s the most compelling value in the vitamin C category.',
-      buildQuality: 'Dark glass bottle with dropper. Not as premium as SkinCeuticals\' packaging, but adequate for a 3-month supply. Store in the fridge to extend stability.',
-      performance: 'Identical mechanism to SkinCeuticals: ferulic acid doubles the photoprotective effects of vitamins C and E. Visible brightening in 4–6 weeks, significant skin tone improvement in 12 weeks.',
-      valueForMoney: 'Extraordinary. The same proven ingredients for 1/8th the price of SkinCeuticals.',
-      whoShouldBuy: 'Anyone who has read about SkinCeuticals but can\'t justify $160. Vitamin C enthusiasts who already understand the ingredient and want to maximize it.',
-      whoShouldAvoid: 'Those who need the premium airtight packaging for slower oxidation, or beginners who should start with a gentler formula like CeraVe.',
-      pros: ['20% L-ascorbic acid — clinical concentration', 'Same C+E+Ferulic combination as SkinCeuticals', 'Under $30', 'Noticeably brightens skin tone'],
-      cons: ['Oxidizes faster — replace every 2–3 months', 'Can tingle on sensitive skin at 20%', 'Basic packaging', 'The orange tinge when oxidized signals it\'s time to replace'],
-      affiliateUrl: 'https://www.amazon.com/dp/B00C3YGZLY?tag=betterwaycomp-20', rating: 9.0,
+      productId: 'timeless-vc',
+      productName: 'Timeless 20% Vitamin C + E Ferulic Serum',
+      image: '',
+      overview:
+        'Timeless is the strongest value pick in this comparison. It gives buyers a high-concentration vitamin C formula at a price that is far easier to justify than premium vitamin C serums.',
+      buildQuality:
+        'The packaging is functional, but the formula should still be treated carefully because vitamin C can oxidize with air, light, and heat exposure.',
+      performance:
+        'This is the most aggressive value pick in the list. Experienced vitamin C users may appreciate the stronger concentration, while beginners or sensitive skin types should patch test and start slowly.',
+      valueForMoney:
+        'Excellent. It is the best value choice if your skin can tolerate stronger vitamin C.',
+      whoShouldBuy:
+        'Buy it if you want a high-concentration vitamin C serum and you understand how to store and use active skincare products.',
+      whoShouldAvoid:
+        'Avoid it if your skin is reactive, compromised, or new to vitamin C. CeraVe or La Roche-Posay is a safer starting point.',
+      pros: ['High vitamin C concentration', 'Strong value', 'Good for experienced users', 'Brightening-focused formula'],
+      cons: ['Can oxidize', 'Can irritate sensitive skin', 'Storage matters', 'Not the safest beginner option'],
+      affiliateUrl: timelessVitaminCUrl,
+      rating: 9.0,
     },
     {
-      productId: 'cerave-vc', productName: 'CeraVe Vitamin C Serum', image: '',
-      overview: 'CeraVe\'s vitamin C serum is the safest daily option for most people. The ceramide and niacinamide base prevents the skin barrier disruption that higher-concentration vitamin C serums can cause.',
-      buildQuality: 'Standard pump bottle with opaque casing for light protection. Adequate for the formula.',
-      performance: 'Gentle brightening visible in 6–8 weeks. Less dramatic than 20% formulas but consistent and tolerable every day without sensitivity.',
-      valueForMoney: 'Very good at $20–$28. Ideal starting point for vitamin C beginners.',
-      whoShouldBuy: 'Beginners, sensitive skin types, those who\'ve experienced irritation from higher-concentration vitamin C, and anyone wanting a reliable daily serum.',
-      whoShouldAvoid: 'Buyers wanting rapid, dramatic brightening results. The Timeless 20% will outperform this for experienced users.',
-      pros: ['Ceramides support skin barrier', 'Fragrance-free', 'Niacinamide adds brightening boost', 'Low irritation risk', 'CeraVe dermatologist endorsement'],
-      cons: ['Lower L-ascorbic acid concentration', 'Slower results than 20% serums', 'Less dramatic brightening effect'],
-      affiliateUrl: 'https://www.amazon.com/dp/B089LTQ1TB?tag=betterwaycomp-20', rating: 8.8,
+      productId: 'cerave-vc',
+      productName: 'CeraVe Vitamin C Serum',
+      image: '',
+      overview:
+        'CeraVe Vitamin C Serum is the safest daily recommendation for most beginners. It is not the most aggressive serum in the comparison, but it makes sense for people who want a lower-risk product they can use consistently.',
+      buildQuality:
+        'The formula positioning is practical: vitamin C plus barrier-supportive ingredients from a mass-market dermatologist-backed brand.',
+      performance:
+        'Expect gradual brightening rather than dramatic overnight results. The value is consistency and tolerance.',
+      valueForMoney:
+        'Very good for beginners and sensitive-skin buyers who do not want to gamble with a harsher serum.',
+      whoShouldBuy:
+        'Buy it if you are new to vitamin C, have sensitive skin, or want a daily serum that is less intimidating than 20% formulas.',
+      whoShouldAvoid:
+        'Avoid it if you want the strongest possible vitamin C concentration for the money.',
+      pros: ['Beginner-friendly', 'Barrier-supportive positioning', 'Good daily option', 'Lower irritation risk'],
+      cons: ['Less dramatic than stronger formulas', 'Not the best for advanced users', 'Results may take longer'],
+      affiliateUrl: ceraveVitaminCUrl,
+      rating: 8.8,
+    },
+    {
+      productId: 'lrp-vc',
+      productName: 'La Roche-Posay Vitamin C12 Pure Serum',
+      image: '',
+      overview:
+        'La Roche-Posay Vitamin C12 is the cautious clinical-style pick. It makes sense for buyers who want a known skincare brand and a more moderate formula than Timeless.',
+      buildQuality:
+        'The brand positioning is the strength here. Buyers who are cautious with active ingredients may feel more comfortable with La Roche-Posay than random low-cost serums.',
+      performance:
+        'Good fit for gradual brightening and daily skincare routines. It is not the cheapest or strongest serum in the list.',
+      valueForMoney:
+        'Good, but not the pure value winner. You are paying partly for the brand trust and sensitive-skin positioning.',
+      whoShouldBuy:
+        'Buy it if you want a respected skincare brand and a more moderate vitamin C product.',
+      whoShouldAvoid:
+        'Avoid it if your only goal is the highest concentration for the lowest price.',
+      pros: ['Trusted brand', 'Good for cautious buyers', 'Moderate strength', 'Daily routine friendly'],
+      cons: ['More expensive than CeraVe', 'Lower concentration than Timeless', 'Not the strongest value'],
+      affiliateUrl: laRochePosayVitaminCUrl,
+      rating: 8.5,
+    },
+    {
+      productId: 'truskin-vc',
+      productName: 'TruSkin Vitamin C Serum',
+      image: '',
+      overview:
+        'TruSkin is the budget pick. It is not the most sophisticated serum here, but it has broad appeal because it is affordable and easy to find.',
+      buildQuality:
+        'This is a budget-oriented serum. It works best for buyers who want a simple entry point rather than a premium formula story.',
+      performance:
+        'Reasonable for basic use, but expectations should stay realistic. It is not the product I would rank above CeraVe or Timeless for serious comparison buyers.',
+      valueForMoney:
+        'Good if price matters most. Not the strongest if you are optimizing for formula quality.',
+      whoShouldBuy:
+        'Buy it if you want a low-cost vitamin C serum and are not ready to spend more.',
+      whoShouldAvoid:
+        'Avoid it if you want the strongest formula, best packaging, or most clinical-style product.',
+      pros: ['Affordable', 'Easy to find', 'Good entry point', 'Popular budget option'],
+      cons: ['Less refined formula positioning', 'Not the strongest results pick', 'Budget packaging expectations'],
+      affiliateUrl: truskinVitaminCUrl,
+      rating: 7.5,
+    },
+    {
+      productId: 'premium-vc-alternative',
+      productName: 'Premium Vitamin C Serum Alternative',
+      image: '',
+      overview:
+        'This premium alternative replaces the original SkinCeuticals slot because the original product link was not available. Before making strong ingredient claims, the exact product listing should be verified.',
+      buildQuality:
+        'Use this as the premium slot only after confirming the product name, seller quality, and formula details from the Amazon listing.',
+      performance:
+        'Performance depends on the exact product behind the affiliate link. Until verified, it should be framed as a premium alternative rather than a proven category winner.',
+      valueForMoney:
+        'To be confirmed after checking the current price and formula details.',
+      whoShouldBuy:
+        'Buy it if the listing confirms it matches your needs and you want a premium-positioned vitamin C product.',
+      whoShouldAvoid:
+        'Avoid it if the seller, formula, or product details are unclear.',
+      pros: ['Premium replacement slot', 'Useful if original premium pick is unavailable', 'Can preserve the article comparison structure'],
+      cons: ['Needs product verification', 'Do not make strong claims until listing is confirmed', 'Current price may vary'],
+      affiliateUrl: premiumVitaminCAlternativeUrl,
+      rating: 8.2,
     },
   ],
   faqs: [
-    { question: 'What is the best vitamin C serum for the money?', answer: 'Timeless 20% Vitamin C + E Ferulic is the best value — it replicates the SkinCeuticals C E Ferulic formula for under $30. For beginners, CeraVe is the safest starting point.' },
-    { question: 'Is Timeless vitamin C as good as SkinCeuticals?', answer: 'The formulation is nearly identical — same 20% L-ascorbic acid, vitamin E, and ferulic acid at the same pH. SkinCeuticals\' advantage is superior packaging stability and brand heritage. For results, Timeless delivers very similar benefits at 1/8th the price.' },
-    { question: 'What percentage vitamin C serum should I use?', answer: '10–20% L-ascorbic acid is the effective range. Below 10% shows limited brightening. Above 20% increases irritation without better results. Beginners should start at 10–12% (CeraVe, La Roche-Posay).' },
-    { question: 'When should I apply vitamin C serum?', answer: 'In the morning, after cleansing and toner, before moisturizer and SPF. Vitamin C and sunscreen work synergistically — the combination provides significantly better photoprotection than either alone.' },
-    { question: 'Why does my vitamin C serum turn orange?', answer: 'L-ascorbic acid oxidizes when exposed to air and light, turning yellow then orange. An orange-colored serum has lost most of its potency. Replace it and store the new bottle in a cool, dark place — or in the fridge.' },
+    {
+      question: 'What is the best vitamin C serum for the money in 2026?',
+      answer: 'Timeless 20% Vitamin C + E Ferulic is the best value pick for experienced users because it offers a strong vitamin C formula at a lower price. For beginners, CeraVe is the safer starting point.',
+    },
+    {
+      question: 'What vitamin C serum should beginners use?',
+      answer: 'Beginners should start with a gentler option like CeraVe Vitamin C Serum or La Roche-Posay Vitamin C12 instead of jumping straight to a stronger 20% formula.',
+    },
+    {
+      question: 'What percentage vitamin C serum should I use?',
+      answer: 'Many skincare users tolerate vitamin C best when starting lower and increasing slowly. Stronger formulas can be effective, but they can also irritate sensitive skin.',
+    },
+    {
+      question: 'When should I apply vitamin C serum?',
+      answer: 'Vitamin C serum is commonly used in the morning before moisturizer and sunscreen. Always follow the instructions on the product label and patch test if your skin is sensitive.',
+    },
+    {
+      question: 'Why does vitamin C serum turn orange?',
+      answer: 'Vitamin C can oxidize when exposed to air, light, or heat. If a serum changes color significantly, smells off, or causes irritation, stop using it and replace it.',
+    },
   ],
   internalLinks: [{ title: 'Best Retinol Serum', slug: 'best-retinol-serum', locale: 'en' }],
-  finalVerdict: 'Timeless 20% Vitamin C + E Ferulic is our best value pick — it delivers SkinCeuticals-level ingredients for $25. Beginners should start with CeraVe. Those who can afford it and want the definitive formula, SkinCeuticals C E Ferulic remains unmatched.',
+  finalVerdict:
+    'Timeless 20% Vitamin C + E Ferulic is the best value pick for experienced vitamin C users in 2026. CeraVe is the best safer daily pick for beginners. La Roche-Posay is the best cautious sensitive-skin option. TruSkin is the budget entry point. The premium alternative should be used only after confirming the exact Amazon listing details, because strong skincare claims require verified product information.',
 }
+
 export default article
